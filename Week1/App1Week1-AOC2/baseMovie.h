@@ -24,12 +24,12 @@ typedef enum {
 @property NSArray *contentRating;   //Content rating
 @property NSString *starRating;     //Number of stars
 @property float ticketPrice;        //Price of movie
-@property int movieTimeDurration;   //In minutes
+@property int movieTimeDuration;   //In minutes
 @property int numberOfSequels;      //Series of movies
 
 
 
-//////      Manipulation methods     \\\\\\
+//             --- Manipulation methods ---   
 
 -(id)init;                       //Initialize 
 
