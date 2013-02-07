@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "movieFactory.h"
 
 @interface ViewController : UIViewController
+{
+   
+}
 
 @end

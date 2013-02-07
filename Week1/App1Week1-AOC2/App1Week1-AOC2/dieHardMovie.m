@@ -10,4 +10,27 @@
 
 @implementation dieHardMovie
 
+@synthesize matineeTicketPrice, studentDiscountPrice, regularMoviePrice;
+
+-(id)init
+{
+    self = [super init];
+    if (self !=nil)
+    {
+        [self setMatineeTicketPrice:8.00];     //Early ticket price
+        [self setStudentDiscountPrice:4.00];   //Price with student discount
+        [self setRegularMoviePrice:10.00];     //Regular ticket price
+        
+    }
+    return self;
+};
+
+//overwriting method for Ticket price in base
+-(void) calcTicketPrice
+{
+    
+    //Price calculation if a student went to regular movie time
+    [self setTicketPrice:(regularMoviePrice-studentDiscountPrice)];
+}
+
 @end

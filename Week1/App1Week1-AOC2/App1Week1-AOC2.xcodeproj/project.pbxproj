@@ -100,9 +100,9 @@
 			children = (
 				E3184B4E16C1E4EA00BB42FF /* AppDelegate.h */,
 				E3184B4F16C1E4EA00BB42FF /* AppDelegate.m */,
+				E3184B5716C1E4EA00BB42FF /* ViewController.h */,
 				E3184B5816C1E4EA00BB42FF /* ViewController.m */,
 				E3184B5A16C1E4EA00BB42FF /* ViewController.xib */,
-				E3184B5716C1E4EA00BB42FF /* ViewController.h */,
 				E3184B4616C1E4EA00BB42FF /* Supporting Files */,
 				E3184B6216C1E57400BB42FF /* movieFactory.h */,
 				E3184B6316C1E57400BB42FF /* movieFactory.m */,

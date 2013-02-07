@@ -6,8 +6,11 @@
 //  Copyright (c) 2013 Wayne Pennell. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "baseMovie.h"
 
-@interface toyStoryMovie : NSObject
+@interface toyStoryMovie : baseMovie
+
+@property int positiveOutcomes;
+@property float starsAppearingInSequel;
 
 @end
