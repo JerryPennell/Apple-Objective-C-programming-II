@@ -10,7 +10,7 @@
 
 @interface harryPotterMovie : baseMovie
 {
-    int movieGenre;
+    int total;
 }
 
 

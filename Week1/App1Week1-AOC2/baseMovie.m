@@ -11,7 +11,7 @@
 @implementation baseMovie
 
 //synthesize creates get and set methods for each property
-@synthesize contentRating, starRating, ticketPrice, movieTimeDuration, numberOfSequels;
+@synthesize starsRating, contentRating, ticketPrice, movieTimeDuration, numberOfSequels;
 
 //         --- initialize base instance ---
 //         --- Mutator methods          ---
@@ -21,11 +21,11 @@
     self = [super init];
     if (self !=nil)
     {
-        [self setContentRating:nil];
-        [self setStarRating:nil];
         [self setTicketPrice:0];
         [self setMovieTimeDuration:0];
         [self setNumberOfSequels:0];
+        [self setStarsRating:nil];
+        [self setContentRating:nil];
     }
     return self;
 }

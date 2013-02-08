@@ -27,7 +27,7 @@
     return self;
 };
 
-//    ---    overwriting method  ---
+//    --- Base method  ---
 
 -(void) calcMovieTimeDurration
 {

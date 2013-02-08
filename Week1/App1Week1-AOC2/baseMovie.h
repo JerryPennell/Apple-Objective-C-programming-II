@@ -21,11 +21,11 @@ typedef enum {
 
 //properties for rating (PG, G etc.), stars, ticket price, durration, series
 
-@property NSArray *contentRating;   //Content rating
-@property NSString *starRating;     //Number of stars
+@property NSArray *starsRating;      //Number of stars
+@property NSString *contentRating;  //Content rating
 @property float ticketPrice;        //Price of movie
 @property int movieTimeDuration;   //In minutes
-@property int numberOfSequels;      //Series of movies
+@property int numberOfSequels;     //Series of movies
 
 
 

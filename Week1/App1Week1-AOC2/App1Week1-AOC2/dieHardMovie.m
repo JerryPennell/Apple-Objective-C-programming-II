@@ -25,7 +25,7 @@
     return self;
 };
 
-//overwriting method for Ticket price in base
+//method for Ticket price in base
 -(void) calcTicketPrice
 {
     

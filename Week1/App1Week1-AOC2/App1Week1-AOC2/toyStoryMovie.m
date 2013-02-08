@@ -24,7 +24,7 @@
     return self;
 };
 
-//overwriting method - Determine number of sequels based on positive outcome and actors
+// Determine number of sequels based on positive outcome and actors - base method
 
 -(void) calcNumberOfSequels
 {
