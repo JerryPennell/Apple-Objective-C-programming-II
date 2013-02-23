@@ -18,6 +18,10 @@
     {
         [self setPriceInDollars:0];
         [self setNumOfConcessionItems:0];
+        [self setTitleOfMovie:nil];
+        [self setConcessionType:nil];
+        [self setTextField:nil];
+        [self setSelectedMovie:nil];
     }
     return self;
 }
@@ -26,6 +30,15 @@
 -(float)calcTicketPrice;
 {
     return self.priceInDollars;
+}
+
+
+//Shows the independent details of concessions for each movie
+-(void)showDetailsForSelectedMovie
+{
+    self.movieLabel.text = self.selectedMovie.titleOfMovie;
+    self.consessionsLabel.text = [[NSString alloc] initWithFormat:@"Number of %@:", self.selectedMovie.concessionType];
+    self.textField.text = [[NSString alloc] initWithFormat:@"%i", self.selectedMovie.numOfConcessionItems];
 }
 
 @end

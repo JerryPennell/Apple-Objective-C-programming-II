@@ -26,60 +26,83 @@
     UIStepper *stepControl = (UIStepper*)sender;
     if (stepControl !=nil)
     {
-        int currentValue = stepControl.value;
-        
-        self.textField.text = [NSString stringWithFormat:@"%i", currentValue];
+        currentValue = stepControl.value;
     }
 }
 
 
-//When the dieHard movie button is pressed
--(IBAction)dieHardMoviePressed:(id)sender
+-(IBAction)onMovieClick:(id)sender
 {
-    self.selectedMovie = [[dieHardMovie alloc] init];
-    [self showDetailsForSelectedMovie];
-    dieHardMovieButton.enabled = NO;
-    harryPotterMovieButton.enabled = YES;
-    toyStoryButtonButton.enabled = YES;
-    stepperControl.value = 0;
-}
-
-//When the harry potter movie is pressed
--(IBAction)harryPotterMoviePressed:(id)sender
-{
-    self.selectedMovie = [[harryPotterMovie alloc] init];
-    [self showDetailsForSelectedMovie];
-    dieHardMovieButton.enabled = YES;
-    harryPotterMovieButton.enabled = NO;
-    toyStoryButtonButton.enabled = YES;
-    stepperControl.value = 0;
-}
-
-//When the toy story movie button is pressed
--(IBAction)toyStoryMoviePressed:(id)sender
-{
-    self.selectedMovie = [[toyStoryMovie alloc] init];
-    [self showDetailsForSelectedMovie];
-    dieHardMovieButton.enabled = YES;
-    harryPotterMovieButton.enabled = YES;
-    toyStoryButtonButton.enabled = NO;
-    stepperControl.value = 0;
-}
-
-
-//Calculation is sent to the text field from the calculation
--(IBAction)calculationPressed:(id)sender
-{
-    int numOfConcessionItems = [self.textField.text intValue];
-    self.selectedMovie.numOfConcessionItems = numOfConcessionItems;
-    float total = [self.selectedMovie calcTicketPrice];
-    if ([self.selectedMovie.titleOfMovie isEqual: @"Harry Potter"]) {
-        self.textField.text = [[NSString alloc] initWithFormat: @"The price for %.0f %@ and the movie is $%.2f", stepperControl.value, self.selectedMovie.concessionType, total];
-    } else {
-        self.textField.text = [[NSString alloc] initWithFormat: @"The price for the movie plus %.0f %@ is $%.2f", stepperControl.value, self.selectedMovie.concessionType, total];
+    UIButton *button = (UIButton*)sender;
+    switch (button.tag) {
+        case 0:
+        {
+            
+            dieHardMovieButton.enabled = NO;
+            harryPotterMovieButton.enabled = YES;
+            toyStoryButtonButton.enabled = YES;
+            stepperControl.value = 0;
+            dieHardMovie *dieHardTicket = (dieHardMovie*)[movieFactory createNewMovie:DIEHARD];
+            [dieHardTicket setTitleOfMovie:@"Die Hard"];
+            [dieHardTicket setTextField:[NSString stringWithFormat:@"%i", currentValue]];
+            [dieHardTicket setConcessionType:@"Hot dogs"];
+            [dieHardTicket setNumOfConcessionItems:[dieHardTicket.textField.text intValue]];
+            
+            total = [dieHardTicket calcTicketPrice];
+            dieHardTicket.textField.text = [[NSString alloc] initWithFormat: @"The price for %@ plus %.0f %@ is $%.2f", dieHardTicket.titleOfMovie, stepperControl.value, dieHardTicket.concessionType, total];
+            
+            [dieHardTicket showDetailsForSelectedMovie];
+            
+          
+        }
+            break;
+            
+        case 1:
+        {
+           
+            harryPotterMovieButton.enabled = YES;
+            dieHardMovieButton.enabled = NO;
+            toyStoryButtonButton.enabled = YES;
+            stepperControl.value = 0;
+            harryPotterMovie *harryPotterTicket = (harryPotterMovie*)[movieFactory createNewMovie:HARRYPOTTER];
+            [harryPotterTicket setTextField:[NSString stringWithFormat:@"%i", currentValue]];
+            [harryPotterTicket setTitleOfMovie:@"Harry Potter"];
+            [harryPotterTicket setConcessionType:@"Pop corn"];
+            [harryPotterTicket setNumOfConcessionItems:[harryPotterTicket.textField.text intValue]];
+            
+            total = [harryPotterTicket calcTicketPrice];
+            harryPotterTicket.textField.text = [[NSString alloc] initWithFormat: @"The price for %@ plus %.0f %@ is $%.2f", harryPotterTicket.titleOfMovie, stepperControl.value, harryPotterTicket.concessionType, total];
+            
+            [harryPotterTicket showDetailsForSelectedMovie];
+        }
+            break;
+            
+        case 2:
+        {
+          
+            dieHardMovieButton.enabled = YES;
+            harryPotterMovieButton.enabled = YES;
+            toyStoryButtonButton.enabled= NO;
+            stepperControl.value = 0;
+            toyStoryMovie *toyStoryTicket = (toyStoryMovie*)[movieFactory createNewMovie:TOYSTORY];
+            [toyStoryTicket setTitleOfMovie:@"Toy Story"];
+            [toyStoryTicket setConcessionType:@"Sodas"];
+            [toyStoryTicket setTextField:[NSString stringWithFormat:@"%i", currentValue]];
+            [toyStoryTicket setNumOfConcessionItems:[toyStoryTicket.textField.text intValue]];
+            
+            total = [toyStoryTicket calcTicketPrice];
+            toyStoryTicket.textField.text = [[NSString alloc] initWithFormat: @"The price for %@ plus %.0f %@ is $%.2f", toyStoryTicket.titleOfMovie, stepperControl.value, toyStoryTicket.concessionType, total];
+            [toyStoryTicket showDetailsForSelectedMovie];
+            
+        }
+            break;
+            
+        default:
+            break;
     }
-    
 }
+
+
 //Method that changes out the UI color background
 -(IBAction)changeTheUIViewColor:(id)sender
 {
@@ -108,13 +131,7 @@
     }
 }
 
-//Shows the independent details of concessions for each movie 
--(void)showDetailsForSelectedMovie
-{
-    self.movieLabel.text = self.selectedMovie.titleOfMovie;
-    self.consessionsLabel.text = [[NSString alloc] initWithFormat:@"Number of %@:", self.selectedMovie.concessionType];
-    self.textField.text = [[NSString alloc] initWithFormat:@"%i", self.selectedMovie.numOfConcessionItems];
-}
+
 
 - (void)didReceiveMemoryWarning
 {

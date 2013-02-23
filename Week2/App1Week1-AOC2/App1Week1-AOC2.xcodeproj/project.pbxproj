@@ -22,6 +22,7 @@
 		E3184B6A16C1E76D00BB42FF /* dieHardMovie.m in Sources */ = {isa = PBXBuildFile; fileRef = E3184B6916C1E76D00BB42FF /* dieHardMovie.m */; };
 		E3184B6D16C1EC3B00BB42FF /* harryPotterMovie.m in Sources */ = {isa = PBXBuildFile; fileRef = E3184B6C16C1EC3B00BB42FF /* harryPotterMovie.m */; };
 		E3184B7316C1ECBE00BB42FF /* toyStoryMovie.m in Sources */ = {isa = PBXBuildFile; fileRef = E3184B7216C1ECBE00BB42FF /* toyStoryMovie.m */; };
+		E34DF21616D7059800B53BB3 /* movieFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = E34DF21416D7059800B53BB3 /* movieFactory.m */; };
 		E39382F216CC77EB00478B96 /* infoButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E39382F116CC77EB00478B96 /* infoButtonView.xib */; };
 		E39382FB16CC83C500478B96 /* infoButtonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E39382FA16CC83C500478B96 /* infoButtonViewController.m */; };
 /* End PBXBuildFile section */
@@ -51,6 +52,8 @@
 		E3184B6C16C1EC3B00BB42FF /* harryPotterMovie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = harryPotterMovie.m; sourceTree = "<group>"; };
 		E3184B7116C1ECBE00BB42FF /* toyStoryMovie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = toyStoryMovie.h; sourceTree = "<group>"; };
 		E3184B7216C1ECBE00BB42FF /* toyStoryMovie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = toyStoryMovie.m; sourceTree = "<group>"; };
+		E34DF21316D7059800B53BB3 /* movieFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = movieFactory.h; sourceTree = "<group>"; };
+		E34DF21416D7059800B53BB3 /* movieFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = movieFactory.m; sourceTree = "<group>"; };
 		E39382F116CC77EB00478B96 /* infoButtonView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = infoButtonView.xib; sourceTree = "<group>"; };
 		E39382F916CC83C500478B96 /* infoButtonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = infoButtonViewController.h; sourceTree = "<group>"; };
 		E39382FA16CC83C500478B96 /* infoButtonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = infoButtonViewController.m; sourceTree = "<group>"; };
@@ -105,6 +108,8 @@
 				E3184B5716C1E4EA00BB42FF /* ViewController.h */,
 				E3184B5816C1E4EA00BB42FF /* ViewController.m */,
 				E3184B5A16C1E4EA00BB42FF /* ViewController.xib */,
+				E34DF21316D7059800B53BB3 /* movieFactory.h */,
+				E34DF21416D7059800B53BB3 /* movieFactory.m */,
 				E3184B4616C1E4EA00BB42FF /* Supporting Files */,
 				E3184B6516C1E66B00BB42FF /* baseMovie.h */,
 				E3184B6616C1E66B00BB42FF /* baseMovie.m */,
@@ -210,6 +215,7 @@
 				E3184B6D16C1EC3B00BB42FF /* harryPotterMovie.m in Sources */,
 				E3184B7316C1ECBE00BB42FF /* toyStoryMovie.m in Sources */,
 				E39382FB16CC83C500478B96 /* infoButtonViewController.m in Sources */,
+				E34DF21616D7059800B53BB3 /* movieFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
