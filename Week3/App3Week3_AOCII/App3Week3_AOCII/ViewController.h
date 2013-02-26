@@ -9,14 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
-{
 
-    
-}
-
-@property (nonatomic, strong) IBOutlet UITextView *textView;
+@property (nonatomic, strong) IBOutlet UITextView *textFieldForView;
 
 -(IBAction)clearEvents:(id)sender;
--(IBAction)saveEvents:(id)sender;
+-(IBAction)onClick:(id)sender;
 
 @end

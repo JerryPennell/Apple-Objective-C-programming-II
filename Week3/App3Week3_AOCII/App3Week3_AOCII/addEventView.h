@@ -11,9 +11,10 @@
 
 @interface addEventView : UIViewController
 {
-    IBOutlet UITextField *textField;
+    IBOutlet UITextField *textFieldForView;
 
 }
 
+@property (nonatomic, strong) UITextView *textFieldForView;
 
 @end

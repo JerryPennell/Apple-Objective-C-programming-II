@@ -18,24 +18,32 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+	// Do any additional setup after loading the view, typically from a nib
     
-
-    
-}
-
-
-//Save events that are in textview so that they stay, even on a reload of the app
--(IBAction)saveEvents:(id)sender
-{
-   
 }
 
 
 //Clear all events added
 -(IBAction)clearEvents:(id)sender
 {
-    self.textView.text = @"";
+    self.textFieldForView.text = @"";
+}
+
+//clickable button to change view with animation
+-(IBAction)onClick:(id)sender;
+{
+    UIButton *btn = (UIButton*)sender;
+    if(btn != nil)
+    {
+        if(btn.tag == 2){
+            addEventView *addlView = [[addEventView alloc] initWithNibName:@"addEventView" bundle:nil];
+            addlView.textFieldForView = self.textFieldForView;
+            if (addlView != nil)
+            {
+                [self presentViewController:addlView animated:(true) completion:nil];
+            }
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning
