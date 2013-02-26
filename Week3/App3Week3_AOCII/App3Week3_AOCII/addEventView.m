@@ -29,6 +29,12 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    //Don't let date go past current date
+    NSDate *todaysDate = [NSDate date];
+    datePicker.minimumDate = todaysDate;
+    
+    
 }
 
 //Close keyboard button
