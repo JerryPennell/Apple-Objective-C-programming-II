@@ -17,4 +17,8 @@
 
 @property (nonatomic, strong) UITextView *textFieldForView;
 
+-(IBAction)saveAnEvent:(id)sender;
+-(IBAction)closeKeyboard:(id)sender;
+-(IBAction)goBackBtn:(id)sender;
+
 @end

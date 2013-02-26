@@ -38,11 +38,14 @@
 }
 
 //Back button in case you don't want to add an event
--(IBAction)backButton:(id)sender
+-(IBAction)goBackBtn:(id)sender
 {
     [self dismissViewControllerAnimated:TRUE completion:nil];
 }
 
+-(IBAction)saveAnEvent:(id)sender{
+    
+}
 
 - (void)didReceiveMemoryWarning
 {
