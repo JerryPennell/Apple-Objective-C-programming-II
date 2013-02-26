@@ -12,6 +12,7 @@
 @interface addEventView : UIViewController
 {
     IBOutlet UITextField *textFieldForView;
+    IBOutlet UIDatePicker *datePicker;
 
 }
 

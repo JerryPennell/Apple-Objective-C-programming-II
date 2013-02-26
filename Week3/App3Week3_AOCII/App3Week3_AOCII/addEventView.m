@@ -45,6 +45,10 @@
 
 -(IBAction)saveAnEvent:(id)sender{
     
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"MMMM d, YYYY 'at' hh:mm a"];
+    NSString *strDate = [formatter stringFromDate:datePicker.date];
+    
 }
 
 - (void)didReceiveMemoryWarning
