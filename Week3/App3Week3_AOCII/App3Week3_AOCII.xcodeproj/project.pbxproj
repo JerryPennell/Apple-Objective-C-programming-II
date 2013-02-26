@@ -17,9 +17,9 @@
 		E34DF20016D5361F00B53BB3 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E34DF1FF16D5361F00B53BB3 /* Default@2x.png */; };
 		E34DF20216D5361F00B53BB3 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E34DF20116D5361F00B53BB3 /* Default-568h@2x.png */; };
 		E34DF20516D5361F00B53BB3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E34DF20416D5361F00B53BB3 /* ViewController.m */; };
-		E34DF20816D5361F00B53BB3 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E34DF20616D5361F00B53BB3 /* ViewController.xib */; };
 		E34DF21116D536B300B53BB3 /* addEventView.m in Sources */ = {isa = PBXBuildFile; fileRef = E34DF20F16D536B300B53BB3 /* addEventView.m */; };
 		E34DF21216D536B300B53BB3 /* addEventView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E34DF21016D536B300B53BB3 /* addEventView.xib */; };
+		E3A423B116DC7AB300F3569D /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3A423B016DC7AB300F3569D /* ViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,10 +38,10 @@
 		E34DF20116D5361F00B53BB3 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		E34DF20316D5361F00B53BB3 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		E34DF20416D5361F00B53BB3 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		E34DF20716D5361F00B53BB3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
 		E34DF20E16D536B300B53BB3 /* addEventView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = addEventView.h; sourceTree = "<group>"; };
 		E34DF20F16D536B300B53BB3 /* addEventView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = addEventView.m; sourceTree = "<group>"; };
 		E34DF21016D536B300B53BB3 /* addEventView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = addEventView.xib; sourceTree = "<group>"; };
+		E3A423B016DC7AB300F3569D /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,7 +92,7 @@
 				E34DF1FB16D5361F00B53BB3 /* AppDelegate.m */,
 				E34DF20316D5361F00B53BB3 /* ViewController.h */,
 				E34DF20416D5361F00B53BB3 /* ViewController.m */,
-				E34DF20616D5361F00B53BB3 /* ViewController.xib */,
+				E3A423B016DC7AB300F3569D /* ViewController.xib */,
 				E34DF20E16D536B300B53BB3 /* addEventView.h */,
 				E34DF20F16D536B300B53BB3 /* addEventView.m */,
 				E34DF21016D536B300B53BB3 /* addEventView.xib */,
@@ -170,8 +170,8 @@
 				E34DF1FE16D5361F00B53BB3 /* Default.png in Resources */,
 				E34DF20016D5361F00B53BB3 /* Default@2x.png in Resources */,
 				E34DF20216D5361F00B53BB3 /* Default-568h@2x.png in Resources */,
-				E34DF20816D5361F00B53BB3 /* ViewController.xib in Resources */,
 				E34DF21216D536B300B53BB3 /* addEventView.xib in Resources */,
+				E3A423B116DC7AB300F3569D /* ViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,14 +198,6 @@
 				E34DF1F516D5361F00B53BB3 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		E34DF20616D5361F00B53BB3 /* ViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E34DF20716D5361F00B53BB3 /* en */,
-			);
-			name = ViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -308,6 +300,7 @@
 				E34DF20D16D5361F00B53BB3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

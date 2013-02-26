@@ -11,12 +11,12 @@
 
 @interface addEventView : UIViewController
 {
-    IBOutlet UITextField *textFieldForView;
+    IBOutlet UITextField *textField;
     IBOutlet UIDatePicker *datePicker;
 
 }
 
-@property (nonatomic, strong) UITextView *textFieldForView;
+@property (nonatomic, strong) UITextView *textView;
 
 -(IBAction)saveAnEvent:(id)sender;
 -(IBAction)closeKeyboard:(id)sender;

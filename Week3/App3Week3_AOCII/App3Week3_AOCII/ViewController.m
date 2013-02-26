@@ -26,7 +26,7 @@
 //Clear all events added
 -(IBAction)clearEvents:(id)sender
 {
-    self.textFieldForView.text = @"";
+    self.textView.text = @"";
 }
 
 //clickable button to change view with animation
@@ -35,12 +35,12 @@
     UIButton *btn = (UIButton*)sender;
     if(btn != nil)
     {
-        if(btn.tag == 2){
+        if(btn.tag == 3){
             addEventView *addlView = [[addEventView alloc] initWithNibName:@"addEventView" bundle:nil];
-            addlView.textFieldForView = self.textFieldForView;
+            addlView.textView = self.textView;
             if (addlView != nil)
             {
-                [self presentViewController:addlView animated:(true) completion:nil];
+                [self presentViewController:addlView animated:TRUE completion:nil];
             }
         }
     }

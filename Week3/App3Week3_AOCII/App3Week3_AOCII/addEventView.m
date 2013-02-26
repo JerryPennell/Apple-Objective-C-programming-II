@@ -56,9 +56,9 @@
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"MMMM d, YYYY 'at' hh:mm a"];
     NSString *strDate = [formatter stringFromDate:datePicker.date];
-    NSString *theText = textFieldForView.text;
+    NSString *theText = textField.text;
     NSString *dateStr = strDate;
-    self.textFieldForView.text = [[NSString alloc] initWithFormat:@"Event: %@ is scheduled for \n %@ \n\n%@", theText, dateStr, self.textFieldForView.text];
+    self.textView.text = [[NSString alloc] initWithFormat:@"Event: %@ is scheduled for \n %@ \n\n%@", theText, dateStr, self.textView.text];
     [self dismissViewControllerAnimated:true completion:nil];
     
 }

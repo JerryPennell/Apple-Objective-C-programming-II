@@ -10,7 +10,7 @@
 
 @interface ViewController : UIViewController
 
-@property (nonatomic, strong) IBOutlet UITextView *textFieldForView;
+@property (nonatomic, strong) IBOutlet UITextView *textView;
 
 -(IBAction)clearEvents:(id)sender;
 -(IBAction)onClick:(id)sender;
