@@ -49,11 +49,17 @@
     [self dismissViewControllerAnimated:TRUE completion:nil];
 }
 
+
+//Save the current Event
 -(IBAction)saveAnEvent:(id)sender{
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"MMMM d, YYYY 'at' hh:mm a"];
     NSString *strDate = [formatter stringFromDate:datePicker.date];
+    NSString *theText = textFieldForView.text;
+    NSString *dateStr = strDate;
+    self.textFieldForView.text = [[NSString alloc] initWithFormat:@"Event: %@ is scheduled for \n %@ \n\n%@", theText, dateStr, self.textFieldForView.text];
+    [self dismissViewControllerAnimated:true completion:nil];
     
 }
 
