@@ -37,9 +37,18 @@
 }
 
 
--(IBAction)onClick:(id)sender
+//Swipe left to load second view
+-(void)onSwipeRight:(UISwipeGestureRecognizer*)recognizer
 {
-   
+    if (recognizer.direction == UISwipeGestureRecognizerDirectionRight)
+    {
+        addEventView *secondViewPopup = [[addEventView alloc] initWithNibName:@"addEventView" bundle:nil];
+        secondViewPopup.textView = self.textView;
+        if (secondViewPopup !=nil)
+        {
+            [self presentViewController:secondViewPopup animated:TRUE completion:nil];
+        }
+    }
 }
 
 
