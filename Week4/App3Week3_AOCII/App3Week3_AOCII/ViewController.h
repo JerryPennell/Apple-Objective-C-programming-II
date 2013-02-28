@@ -9,6 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
+{
+    IBOutlet UILabel *swipeToEvents;
+    
+    UISwipeGestureRecognizer *rightSwiper;
+    
+}
 
 @property (nonatomic, strong) IBOutlet UITextView *textView;
 

@@ -20,6 +20,20 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
+    //Set defaults from saved defaults at start
+    NSUserDefaults *defaultsOnLoad = [NSUserDefaults standardUserDefaults];
+    if(defaultsOnLoad != nil)
+    {
+        NSString *textViewString = [defaultsOnLoad objectForKey:@"events"];
+        
+        self.textView.text = textViewString;
+    }
+    
+    //Sets right swipe gesture
+    rightSwiper = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(onSwipeRight:)];
+    rightSwiper.direction = UISwipeGestureRecognizerDirectionRight;
+    [swipeToEvents addGestureRecognizer:rightSwiper];
+    
 }
 
 
