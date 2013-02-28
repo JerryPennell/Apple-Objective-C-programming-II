@@ -6,70 +6,81 @@
 //  Copyright (c) 2013 Wayne Pennell. All rights reserved.
 //
 
-#import "ViewController.h"
 #import "addEventView.h"
+#import "ViewController.h"
 
-@interface ViewController ()
+@interface addEventView ()
 
 @end
 
-@implementation ViewController
+@implementation addEventView
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
 
 - (void)viewDidLoad
+
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    // Do any additional setup after loading the view from its nib.
     
-    //Set defaults from saved defaults at start
-    NSUserDefaults *defaultsOnLoad = [NSUserDefaults standardUserDefaults];
-    if(defaultsOnLoad != nil)
-    {
-        NSString *textViewString = [defaultsOnLoad objectForKey:@"events"];
-        
-        self.textView.text = textViewString;
-    }
+    //Sets left swipe gesture
+    leftSwiper = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(onSwipeLeft:)];
+    leftSwiper.direction = UISwipeGestureRecognizerDirectionLeft;
+    [swipeToAdd addGestureRecognizer:leftSwiper];
     
-    //Sets right swipe gesture
-    rightSwiper = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(onSwipeRight:)];
-    rightSwiper.direction = UISwipeGestureRecognizerDirectionRight;
-    [swipeToEvents addGestureRecognizer:rightSwiper];
-    
+    //Set minimum date as today's date
+    NSDate *todaysDate = [NSDate date];
+    datePicker.minimumDate = todaysDate;
+
 }
 
-//Swipe left to load second view
--(void)onSwipeRight:(UISwipeGestureRecognizer*)recognizer
+//Close keyboard button
+-(IBAction)closeKeyboard:(id)sender
 {
-    if (recognizer.direction == UISwipeGestureRecognizerDirectionRight)
+    [self.view endEditing:YES];
+}
+
+//Back button in case you don't want to add an event
+-(IBAction)backButton:(id)sender
+{
+    [self dismissViewControllerAnimated:TRUE completion:nil];
+}
+
+//Adds event to textview on first view
+-(void)onSwipeLeft:(UISwipeGestureRecognizer*)recognizer
+{
+    if (recognizer.direction == UISwipeGestureRecognizerDirectionLeft)
     {
-        addEventView *secondViewPopup = [[addEventView alloc] initWithNibName:@"addEventView" bundle:nil];
-        secondViewPopup.textView = self.textView;
-        if (secondViewPopup !=nil)
+        //If text field is blank, throw up an error message letting the user know
+        if([textField.text length] == 0)
         {
-            [self presentViewController:secondViewPopup animated:TRUE completion:nil];
+            errorMessage.textColor = [UIColor redColor];
+            errorMessage.text = @"*Please Enter An Event Title";
+            
+        } else if ([textField.text length] > 0) {
+            
+            //Format date
+            NSDateFormatter *f = [[NSDateFormatter alloc] init];
+            [f setDateFormat:@"MMMM d, YYYY 'at' hh:mm a"];
+            NSString *s = [f stringFromDate:datePicker.date];
+            
+            NSString *textString = textField.text;
+            NSString *dateString = s;
+            
+            //Add new info to textview
+            self.textView.text = [[NSString alloc] initWithFormat:@"Event: %@ is scheduled for \n %@ \n\n%@", textString, dateString, self.textView.text];;
+            
+            //Close current view
+            [self dismissViewControllerAnimated:TRUE completion:nil];
         }
     }
-}
-
-//Save events that are in textview so that they stay, even on a reload of the app
--(IBAction)saveEvents:(id)sender
-{
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    if (defaults !=nil)
-    {
-        NSString *textViewString = self.textView.text;
-        
-        [defaults setObject:textViewString forKey:@"events"];
-        
-        //saves defaults
-        [defaults synchronize];
-    }
-}
-
-
-//Clear all events added
--(IBAction)clearEvents:(id)sender
-{
-    self.textView.text = @"";
 }
 
 - (void)didReceiveMemoryWarning
@@ -79,5 +90,4 @@
 }
 
 @end
-
 

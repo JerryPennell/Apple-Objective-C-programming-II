@@ -11,17 +11,17 @@
 
 @interface addEventView : UIViewController
 {
-    IBOutlet UITextField *textField;
-    IBOutlet UIDatePicker *datePicker;
-    IBOutlet UILabel *errorMessage;
-    IBOutlet UILabel *swipeToAdd;
+    IBOutlet UITextField *textField;        //Text Field for collecting events
+    IBOutlet UIDatePicker *datePicker;      //Date picker
+    IBOutlet UILabel *errorMessage;         //Displays an error message
+    IBOutlet UILabel *swipeToAdd;           //Saves on swiper
     
-    UISwipeGestureRecognizer *leftSwiper;
+    UISwipeGestureRecognizer *leftSwiper;   //Left Swiper
 }
 
 @property (nonatomic, strong) UITextView *textView;
 
--(IBAction)closeKeyboard:(id)sender;
--(IBAction)backButton:(id)sender;
+-(IBAction)closeKeyboard:(id)sender;         //Closes the keyboard
+-(IBAction)backButton:(id)sender;            //Back button
 
 @end
