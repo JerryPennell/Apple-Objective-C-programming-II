@@ -6,73 +6,70 @@
 //  Copyright (c) 2013 Wayne Pennell. All rights reserved.
 //
 
-#import "addEventView.h"
 #import "ViewController.h"
+#import "addEventView.h"
 
-@interface addEventView ()
+@interface ViewController ()
 
 @end
 
-@implementation addEventView
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
+@implementation ViewController
 
 - (void)viewDidLoad
-
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-
+	// Do any additional setup after loading the view, typically from a nib.
+    
+    //Set defaults from saved defaults at start
+    NSUserDefaults *defaultsOnLoad = [NSUserDefaults standardUserDefaults];
+    if(defaultsOnLoad != nil)
+    {
+        NSString *textViewString = [defaultsOnLoad objectForKey:@"events"];
+        
+        self.textView.text = textViewString;
+    }
+    
+    //Sets right swipe gesture
+    rightSwiper = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(onSwipeRight:)];
+    rightSwiper.direction = UISwipeGestureRecognizerDirectionRight;
+    [swipeToEvents addGestureRecognizer:rightSwiper];
+    
 }
 
-//Adds event to textview on first view
--(void)onSwipeLeft:(UISwipeGestureRecognizer*)recognizer
+//Swipe left to load second view
+-(void)onSwipeRight:(UISwipeGestureRecognizer*)recognizer
 {
-    if (recognizer.direction == UISwipeGestureRecognizerDirectionLeft)
+    if (recognizer.direction == UISwipeGestureRecognizerDirectionRight)
     {
-        //If text field is blank, throw up an error message letting the user know
-        if([textField.text length] == 0)
+        addEventView *secondViewPopup = [[addEventView alloc] initWithNibName:@"addEventView" bundle:nil];
+        secondViewPopup.textView = self.textView;
+        if (secondViewPopup !=nil)
         {
-            errorMessage.textColor = [UIColor redColor];
-            errorMessage.text = @"*Please Enter Event Title";
-            
-        } else if ([textField.text length] > 0) {
-            
-            //Format date
-            NSDateFormatter *f = [[NSDateFormatter alloc] init];
-            [f setDateFormat:@"MMMM d, YYYY 'at' hh:mm a"];
-            NSString *s = [f stringFromDate:datePicker.date];
-            
-            NSString *textString = textField.text;
-            NSString *dateString = s;
-            
-            //Add new info to textview
-            self.textView.text = [[NSString alloc] initWithFormat:@"Event: %@ is scheduled for \n %@ \n\n%@", textString, dateString, self.textView.text];;
-            
-            //Close current view
-            [self dismissViewControllerAnimated:TRUE completion:nil];
+            [self presentViewController:secondViewPopup animated:TRUE completion:nil];
         }
     }
 }
 
-
-//Close keyboard button
--(IBAction)closeKeyboard:(id)sender
+//Save events that are in textview so that they stay, even on a reload of the app
+-(IBAction)saveEvents:(id)sender
 {
-    [self.view endEditing:YES];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if (defaults !=nil)
+    {
+        NSString *textViewString = self.textView.text;
+        
+        [defaults setObject:textViewString forKey:@"events"];
+        
+        //saves defaults
+        [defaults synchronize];
+    }
 }
 
-//Back button in case you don't want to add an event
--(IBAction)backButton:(id)sender
+
+//Clear all events added
+-(IBAction)clearEvents:(id)sender
 {
-    [self dismissViewControllerAnimated:TRUE completion:nil];
+    self.textView.text = @"";
 }
 
 - (void)didReceiveMemoryWarning
@@ -82,4 +79,5 @@
 }
 
 @end
+
 

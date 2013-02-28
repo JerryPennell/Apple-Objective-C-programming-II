@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Wayne Pennell. All rights reserved.
 //
 
+
 #import "ViewController.h"
 #import "addEventView.h"
 
@@ -36,7 +37,6 @@
     
 }
 
-
 //Swipe left to load second view
 -(void)onSwipeRight:(UISwipeGestureRecognizer*)recognizer
 {
@@ -48,6 +48,21 @@
         {
             [self presentViewController:secondViewPopup animated:TRUE completion:nil];
         }
+    }
+}
+
+//Save events that are in textview so that they stay, even on a reload of the app
+-(IBAction)saveEvents:(id)sender
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if (defaults !=nil)
+    {
+        NSString *textViewString = self.textView.text;
+        
+        [defaults setObject:textViewString forKey:@"events"];
+        
+        //saves defaults
+        [defaults synchronize];
     }
 }
 

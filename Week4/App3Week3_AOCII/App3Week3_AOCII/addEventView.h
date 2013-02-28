@@ -14,7 +14,9 @@
     IBOutlet UITextField *textField;
     IBOutlet UIDatePicker *datePicker;
     IBOutlet UILabel *errorMessage;
-
+    IBOutlet UILabel *swipeToAdd;
+    
+    UISwipeGestureRecognizer *leftSwiper;
 }
 
 @property (nonatomic, strong) UITextView *textView;
