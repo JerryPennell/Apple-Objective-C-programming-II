@@ -18,7 +18,7 @@
 
 @property (nonatomic, strong) IBOutlet UITextView *textView;
 
--(IBAction)onClick:(id)sender;
+-(IBAction)saveEvents:(id)sender;
 -(IBAction)clearTxtEvents:(id)sender;
 
 @end
