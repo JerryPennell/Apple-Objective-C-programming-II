@@ -11,6 +11,7 @@
 @interface harryPotterMovie : baseMovie
 {
     int total;
+
 }
 
 
@@ -27,6 +28,9 @@ typedef enum {
 @property int ageType;  //Appropriate age groups
 @property int runTime;  //Time the movie plays with credits included
 @property int adsTime;  //Time the actual movie not playing
+
+@property float newStudentDiscountPrice; //4 dollars off
+@property float regularMoviePrice;    //Standard price
 
 //String of the movie generes
 

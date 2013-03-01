@@ -22,6 +22,9 @@
         [self setAgeType:FAMILY];      //Default age type
         [self setRunTime:120];         //Minutes
         [self setAdsTime:20];          //Default ad time
+        [self setNewStudentDiscountPrice:3.00];  //New student discount
+        [self setRegularMoviePrice:1.00];  //Regular cheaper movie price
+       
         
     }
     return self;
@@ -58,6 +61,15 @@
         NSLog(@"No movie genre found.");
     }
     
+}
+
+//method for Ticket price in base
+-(void) calcTicketPrice
+{
+    
+    //Price calculation if a student went to regular movie time
+    [self setTicketPrice:(_regularMoviePrice+_newStudentDiscountPrice)];
+    NSLog(@"The Harry Potter movie has a ticket price of %.2f dollars", self.ticketPrice);
 }
 
 @end

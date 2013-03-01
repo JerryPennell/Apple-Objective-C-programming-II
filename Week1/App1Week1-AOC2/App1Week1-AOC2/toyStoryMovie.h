@@ -13,4 +13,8 @@
 @property int positiveOutcomes;
 @property float starsAppearingInSequel;
 
+
+@property float newStudentDiscountPrice; //8 dollars off
+@property float regularMoviePrice;    //Standard price
+
 @end

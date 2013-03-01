@@ -31,6 +31,9 @@
     
     //Price calculation if a student went to regular movie time
     [self setTicketPrice:(regularMoviePrice-studentDiscountPrice)];
+    NSLog(@"The Die Hard movie has a ticket price of %.2f dollars", self.ticketPrice);
+    
+    
 }
 
 @end

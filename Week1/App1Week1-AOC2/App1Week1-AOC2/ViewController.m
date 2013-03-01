@@ -64,6 +64,10 @@
         contentLabel.numberOfLines = 2;
         contentLabel.backgroundColor = [UIColor lightGrayColor];
         contentLabel.text = [NSString stringWithFormat:@"Content Rating: %@", [buyDieHardTicket contentRating]];
+        
+        [buyDieHardTicket setRegularMoviePrice:9.00];
+        [buyDieHardTicket setTicketPrice:10.00];
+        
         [self.view addSubview:contentLabel];
         
         //Calculate the price of ticket
@@ -95,6 +99,9 @@
     [self.view addSubview:startMovieLabel];
     
     
+    //Calculate the price of ticket - NSLOG
+    [startTheMovie calcTicketPrice];
+    
     if (startTheMovie !=nil)
     {
         //Cacluate the total time of the movie to see when you get out
@@ -123,6 +130,9 @@
     determineSequelLabel.numberOfLines = 2;
     determineSequelLabel.text = [NSString stringWithFormat:@"Let's see if there would be a sequel to Toy Story.."];
     [self.view addSubview:determineSequelLabel];
+    
+    //NSlogs a ticket price
+    [toyStorySequel calcTicketPrice];
     
     if (toyStorySequel != nil){
         
