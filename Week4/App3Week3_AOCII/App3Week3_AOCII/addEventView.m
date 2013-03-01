@@ -30,14 +30,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    //Set minimum date as today's date
+    NSDate *todaysDate = [NSDate date];
+    datePicker.minimumDate = todaysDate;
+    
     //Sets left swipe gesture
     leftSwiper = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(onSwipeLeft:)];
     leftSwiper.direction = UISwipeGestureRecognizerDirectionLeft;
     [swipeToAdd addGestureRecognizer:leftSwiper];
-    
-    //Set minimum date as today's date
-    NSDate *todaysDate = [NSDate date];
-    datePicker.minimumDate = todaysDate;
 
 }
 
@@ -62,7 +62,7 @@
         if([textField.text length] == 0)
         {
             errorMessage.textColor = [UIColor redColor];
-            errorMessage.text = @"*Please Enter An Event Title";
+            errorMessage.text = @"*Please Enter An Event Description";
             
         } else if ([textField.text length] > 0) {
             
